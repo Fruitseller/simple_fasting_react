@@ -1,18 +1,19 @@
 import React from "react";
+
 import { StyleSheet, Text, View } from "react-native";
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import Timer from "./src/Timer";
+import FastScreen from "./src/FastScreen";
+import FeastScreen from "./src/FeastScreen";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Start your fasting timer</Text>
-        <Timer />
-      </View>
-    );
-  }
-}
+const TabNavigator = createBottomTabNavigator({
+  Fast: FastScreen,
+  Feast: FeastScreen
+});
 
+export default createAppContainer(TabNavigator);
+
+/*
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -21,3 +22,4 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+*/
